@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
+import API_URL from '../config';
 import './UploadForm.css';
 
 function UploadForm() {
@@ -90,7 +91,7 @@ function UploadForm() {
     formData.append('image', file);
 
     try {
-      const res = await axios.post('/upload', formData, {
+      const res = await axios.post(`${API_URL}/upload`, formData, {
         timeout: 30000, // 30 second timeout
         headers: {
           'Content-Type': 'multipart/form-data',
