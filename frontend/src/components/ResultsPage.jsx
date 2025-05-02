@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_URL from '../config';
 import './ResultsPage.css';
 
 function ResultsPage() {
@@ -10,7 +11,7 @@ function ResultsPage() {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const res = await axios.get('/results');
+        const res = await axios.get(`${API_URL}/results`);
         console.log('Fetched results:', res.data);
 
         if (res.data.success && Array.isArray(res.data.results)) {
